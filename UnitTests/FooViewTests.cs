@@ -10,7 +10,7 @@ namespace UnitTests
         public void TestLabelText()
         {
             var view = new FooView();
-            Assert.AreEqual("Hello This is Foo View!!", view.TestFooLabel.Text);
+            Assert.AreEqual("Hello This is Foo View!", view.TestFooLabel.Text);
         }
     }
 }
