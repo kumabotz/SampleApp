@@ -7,9 +7,7 @@ on:
 
 jobs:
   Practice:
-
-    runs-on: macos-latest
-    
+    runs-on: macos-latest  
     steps:
     - uses: actions/checkout@v1
     - name: Run a one-line script
@@ -26,13 +24,9 @@ jobs:
         cd ..
         ls
   Android:
-
     runs-on: macos-latest
-    
     steps:
-
     - uses: actions/checkout@v1
-      
     - name: Android
       run: |
         cd SampleApp
@@ -40,13 +34,9 @@ jobs:
         cd SampleApp.Android
         msbuild SampleApp.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
   iOS:
-
     runs-on: macos-latest
-    
     steps:
-
     - uses: actions/checkout@v1
-      
     - name: iOS
       run: |
         cd SampleApp
