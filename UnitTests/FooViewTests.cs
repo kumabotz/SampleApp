@@ -7,10 +7,10 @@ namespace UnitTests
     public class FooViewTests : ViewUnitTestBase
     {
         [Test]
-        public void FooViewTest()
+        public void TestLabelText()
         {
             var view = new FooView();
-            Assert.NotNull(view);
+            Assert.AreEqual("Hello This is Foo View!", view.TestFooLabel.Text);
         }
     }
 }
