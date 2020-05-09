@@ -13,7 +13,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
-    - names: Unit Tests
+    - name: Unit Tests
       run: |
         nuget restore
         cd UnitTests
