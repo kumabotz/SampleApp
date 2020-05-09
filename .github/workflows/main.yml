@@ -2,46 +2,39 @@ name: CI on Push and Pull Request
 
 on: 
   push:
-    branches: [ master ]
+    branches:
+      - '*'
   pull_request:
-    branches: [ master ]
-    #tags:
-    #- '*'
+    branches:
+      - '*'
 
 jobs:
-  Practice:
-    runs-on: macos-latest  
+  Tests:
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
+    - name: Unit Tests
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
-    - name: Show what in there
-      run: |
-        ls
-    - name: Show what it's inside
-      run: |
-        cd ..
-        ls
+        nuget restore
+        cd UnitTests
+        dotnet build
+        dotnet test
+
   Android:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
     - name: Android
       run: |
-        cd SampleApp
         nuget restore
         cd SampleApp.Android
         msbuild SampleApp.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
+
   iOS:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
     - name: iOS
       run: |
-        cd SampleApp
         nuget restore
         msbuild SampleApp.iOS/SampleApp.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
