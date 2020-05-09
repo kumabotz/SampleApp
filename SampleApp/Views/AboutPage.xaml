@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="SampleApp.Views.AboutPage"
              xmlns:vm="clr-namespace:SampleApp.ViewModels"
+             xmlns:views="clr-namespace:SampleApp.Views;assembly=SampleApp"
              Title="{Binding Title}">
     
     <ContentPage.BindingContext>
@@ -30,6 +31,7 @@
                 <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
                     <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
                 </ContentView>
+                <views:FooView/>
             </StackLayout>
         </StackLayout>
         <ScrollView Grid.Row="1">
