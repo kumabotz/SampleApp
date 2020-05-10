@@ -5,7 +5,7 @@ using Xamarin.Forms.Mocks;
 
 namespace UnitTests
 {
-    public class ViewUnitTestBase
+    public class ViewTestBase
     {
         [SetUp]
         public void Setup()

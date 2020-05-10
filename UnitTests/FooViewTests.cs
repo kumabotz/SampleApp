@@ -4,7 +4,7 @@ using SampleApp.Views;
 namespace UnitTests
 {
     [TestFixture]
-    public class FooViewTests : ViewUnitTestBase
+    public class FooViewTests : ViewTestBase
     {
         [Test]
         public void TestLabelText()
