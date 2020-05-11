@@ -3,11 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:SampleApp.ViewModels;assembly=SampleApp"
              mc:Ignorable="d"
              x:Class="SampleApp.Views.FooView">
-  <ContentView.Content>
+    <ContentView.BindingContext>
+        <viewModels:FooViewModel/>
+    </ContentView.BindingContext>
+    <ContentView.Content>
       <StackLayout>
             <Label x:Name="FooLabel" Text="Hello This is Foo View!" TextColor="{StaticResource NavigationPrimary}" />
+            <Button Text="Execute Command" Command="{Binding MyCommand}"/>
       </StackLayout>
   </ContentView.Content>
 </ContentView>

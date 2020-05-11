@@ -1,12 +1,10 @@
-﻿using System;
+﻿using SampleApp.Models;
+using SampleApp.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
 using Xamarin.Forms;
-
-using SampleApp.Models;
-using SampleApp.Services;
 
 namespace SampleApp.ViewModels
 {
@@ -14,18 +12,18 @@ namespace SampleApp.ViewModels
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
-        bool isBusy = false;
+        private bool _isBusy = false;
         public bool IsBusy
         {
-            get { return isBusy; }
-            set { SetProperty(ref isBusy, value); }
+            get => _isBusy;
+            set => SetProperty(ref _isBusy, value);
         }
 
-        string title = string.Empty;
+        private string _title = string.Empty;
         public string Title
         {
-            get { return title; }
-            set { SetProperty(ref title, value); }
+            get => _title;
+            set => SetProperty(ref _title, value);
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
@@ -41,16 +39,12 @@ namespace SampleApp.ViewModels
             return true;
         }
 
-        #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var changed = PropertyChanged;
-            if (changed == null)
-                return;
 
-            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            changed?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        #endregion
     }
 }

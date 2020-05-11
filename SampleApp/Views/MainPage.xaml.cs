@@ -1,26 +1,22 @@
-﻿using System;
+﻿using SampleApp.Models;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-using SampleApp.Models;
 
 namespace SampleApp.Views
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
-    public partial class MainPage : MasterDetailPage
+    public partial class MainPage
     {
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
+
         public MainPage()
         {
             InitializeComponent();
-
             MasterBehavior = MasterBehavior.Popover;
-
             MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
         }
 
@@ -35,6 +31,12 @@ namespace SampleApp.Views
                         break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        break;
+                    case (int)MenuItemType.PersonEntry:
+                        MenuPages.Add(id, new NavigationPage(new PersonEntryPage()));
+                        break;
+                    case (int)MenuItemType.DecimalKeypad:
+                        MenuPages.Add(id, new NavigationPage(new DecimalKeypadPage()));
                         break;
                 }
             }

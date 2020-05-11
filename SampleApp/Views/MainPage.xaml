@@ -6,7 +6,6 @@
             mc:Ignorable="d"
             xmlns:views="clr-namespace:SampleApp.Views"
             x:Class="SampleApp.Views.MainPage">
-
     <MasterDetailPage.Master>
         <views:MenuPage />
     </MasterDetailPage.Master>
@@ -23,5 +22,4 @@
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>
-    
 </MasterDetailPage>
